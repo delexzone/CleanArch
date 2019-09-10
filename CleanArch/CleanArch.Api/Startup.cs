@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using CleanArch.Api.Configurations;
 using CleanArch.Infra.Data.Context;
 using CleanArch.IoC;
 using MediatR;
@@ -37,7 +39,7 @@ namespace CleanArch.Api
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info {Title = "University Api", Version = "v1"}));
 
             services.AddMediatR(typeof(Startup));
-
+            services.RegisterAutoMapper();
             RegisterServices(services);
         }
 
